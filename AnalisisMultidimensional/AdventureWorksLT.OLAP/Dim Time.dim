@@ -44,7 +44,7 @@
   <State>Unprocessed</State>
   <Source xsi:type="TimeBinding" dwd:design-time-name="3df40266-1258-4c53-9a24-0c91c608d820">
     <CalendarStartDate>2008-01-01T00:00:00Z</CalendarStartDate>
-    <CalendarEndDate>2012-12-31T00:00:00Z</CalendarEndDate>
+    <CalendarEndDate>2015-12-31T00:00:00Z</CalendarEndDate>
   </Source>
   <Type>Time</Type>
   <CurrentStorageMode>Molap</CurrentStorageMode>
