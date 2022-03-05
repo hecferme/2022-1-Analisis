@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/slnx.sqlite
+/.vs/2022-1-Analisis/v17
+/.vs
+/AnalisisMultidimensional/.vs/AdventureWorksLT.OLAP/v16
+/AnalisisMultidimensional/AdventureWorksLT.OLAP/bin
+/AnalisisMultidimensional/AdventureWorksLT.OLAP/obj/Development
