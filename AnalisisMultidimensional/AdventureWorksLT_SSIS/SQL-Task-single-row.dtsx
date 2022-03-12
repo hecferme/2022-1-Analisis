@@ -1,0 +1,207 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/12/2022 8:21:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FERNANDEZMH-P"
+  DTS:CreatorName="PDC-ATLANTIDA\FERNANDEZMH"
+  DTS:DTSID="{5DE2D42F-7EAD-42B2-A65C-ECFE6A8C98EB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E73D5D0F-0F6F-4538-961E-139A4DAA7F55}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[srv-netcore.database.windows.net.db_adventureworkslt.hecferme]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BDE54533-2405-4FE6-B965-0B5A44409B62}"
+      DTS:ObjectName="srv-netcore.database.windows.net.db_adventureworkslt.hecferme">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=srv-netcore.database.windows.net;User ID=hecferme;Initial Catalog=db_adventureworkslt;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgAkTv8Pmwk6BAHlhl7KfUAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAZcxmlMMqPc5+XHwJ3OiuZAAAAAASAAACgAAAAEAAAAOm5qhYGmceG5uCzp9H53l8YAAAA1Y+zlRVhXd3icjoim4cY9R08PCuDCeYSFAAAAIxOdPCLisBCIeW7lo9IvW9TaSm1</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{00D3E9C5-C5E7-47AA-A9C1-045EE4F15946}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MiProductId">
+      <DTS:VariableValue
+        DTS:DataType="3">710</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6D75EA6A-8517-4FFE-AABE-D477D0575CFA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="14">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A1B82FED-E1D9-40EF-97DD-3A898C9E917D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable1">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38E4BD81-FB27-42C4-8844-AE546BAFF1CD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable2">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2001</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34037F69-14DB-4FA3-92CF-66E7D2AB4068}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable3">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Lectura de datos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{572EDBB8-F985-48EA-9B46-07459329CDEC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Lectura de datos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BDE54533-2405-4FE6-B965-0B5A44409B62}"
+          SQLTask:SqlStatementSource="declare @productId as int;&#xA;set @productId = ?;&#xA;select top (1) ProductID as ID, name as ProductName, ListPrice, SellStartDate  from SalesLT.Product where ProductID = @productId;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="ListPrice"
+            SQLTask:DtsVariableName="User::Variable" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="ID"
+            SQLTask:DtsVariableName="User::Variable1" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="SellStartDate"
+            SQLTask:DtsVariableName="User::Variable2" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="ProductName"
+            SQLTask:DtsVariableName="User::Variable3" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::MiProductId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pausa"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CCF8D964-2284-4A58-B201-E4FE09E1814A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pausa"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD1B445D-585C-4778-8CDF-3CD00DC20159}"
+      DTS:From="Package\Lectura de datos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Pausa" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\Lectura de datos"
+          TopLeft="244.999996349216,65.6499988260865" />
+        <NodeLayout
+          Size="108,42.6666666666667"
+          Id="Package\Pausa"
+          TopLeft="288.942303386732,179.999996781349" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="324.333329682549,108.316665492753">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.6089737041829,71.683331288596"
+              Start="0,0"
+              End="18.6089737041829,64.183331288596">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.841665644298" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.841665644298"
+                    Point2="0,35.841665644298"
+                    Point3="4,35.841665644298" />
+                  <mssgle:LineSegment
+                    End="14.6089737041829,35.841665644298" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.6089737041829,35.841665644298"
+                    Point2="18.6089737041829,35.841665644298"
+                    Point3="18.6089737041829,39.841665644298" />
+                  <mssgle:LineSegment
+                    End="18.6089737041829,64.183331288596" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
